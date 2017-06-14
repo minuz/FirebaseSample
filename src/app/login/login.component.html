@@ -1,0 +1,17 @@
+<div class="container  d-flex h-100">
+  <div class="container text-center justify-content-center">
+    <form class="form-signin" [formGroup]="credentials" novalidate>
+      <h2 class="form-signin-heading">Sign in</h2>
+      <p>
+        <a class="btn btn-primary social-login-btn social-google" (click)="googleSignIn()"><i class="fa fa-google-plus"></i></a>
+      </p>
+
+      <input class="form-control login-input" placeholder="Email Address" type="text" formControlName="email">
+      <input class="form-control login-input-pass" placeholder="Password" type="password" formControlName="password">
+
+      <span class="text-danger" *ngIf="displayError">{{errorMessage}}</span>
+
+      <button class="btn btn-lg btn-primary btn-block btn-center" (click)="emailSignIn()">Sign in</button>
+      <br>
+    </form>
+  </div>
