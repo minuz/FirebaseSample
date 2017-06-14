@@ -4,8 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Pre-requisites
 
-NodeJs - Created with version 6.9.2
-Firebase account
+- NodeJs - Created with version 6.9.2
+- Firebase account
 
 ## Firebase setup
 
