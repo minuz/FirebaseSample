@@ -1,10 +1,10 @@
 # Firebase Sample
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
 ## Pre-requisites
 
-- NodeJs - Created with version 6.9.2
+- NodeJs - Created with version 8.2.1
 - Firebase account
 
 ## Firebase setup
