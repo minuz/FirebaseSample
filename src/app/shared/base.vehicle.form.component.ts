@@ -2,7 +2,7 @@ import { Response } from '@angular/http';
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { NgbActiveModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
-import { DynamicFormControlModel, DynamicFormService } from '@ng2-dynamic-forms/core';
+import { DynamicFormControlModel, DynamicFormService } from '@ng-dynamic-forms/core';
 
 import { VehiclesService } from '../services/vehicles.service';
 

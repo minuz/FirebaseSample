@@ -1,4 +1,4 @@
-import { DynamicInputModel, DynamicFormControlModel } from '@ng2-dynamic-forms/core';
+import { DynamicInputModel, DynamicFormControlModel } from '@ng-dynamic-forms/core';
 
 export class MotorcycleForm {
     static formAlign = {

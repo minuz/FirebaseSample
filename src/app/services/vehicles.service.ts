@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class VehiclesService {
@@ -9,7 +10,7 @@ export class VehiclesService {
     constructor(private db: AngularFireDatabase) { }
 
     Get<T>(url, query?) {
-        return this.db.list(url, query)
+        return this.db.list(url, query).valueChanges()
             // .map(this.extractData)
             .catch(this.handleError);
     }
@@ -17,19 +18,19 @@ export class VehiclesService {
     Put<T>(url: string, key: string, model: any) {
         const list = this.db.list(url);
         list.update(key, model);
-        return list;
+        return list.valueChanges();
     }
 
     Post<T>(url: string, body?: T) {
         const list = this.db.list(url);
         list.push(body);
-        return list;
+        return list.valueChanges();
     }
 
     Delete<T>(url: string, key: string) {
         const list = this.db.list(url);
         list.remove(key);
-        return list;
+        return list.valueChanges();
     }
 
     private extractData<T>(res) {
@@ -48,7 +49,7 @@ export class VehiclesService {
             msg = error.message ? error.message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
         }
         console.error(msg);
-        return FirebaseListObservable.throw(msg);
+        return Observable.throw(msg);
     }
 
 }
