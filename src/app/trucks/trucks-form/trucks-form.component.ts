@@ -1,7 +1,7 @@
 import { TruckForm } from './truck.form.model';
 import { ApiUrl } from './../../shared/util';
 import { VehiclesService } from './../../services/vehicles.service';
-import { DynamicFormService } from '@ng2-dynamic-forms/core';
+import { DynamicFormService } from '@ng-dynamic-forms/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Truck } from './../../shared/models/vehicles';
 import { VehiclesFormComponent } from 'app/shared/base.vehicle.form.component';

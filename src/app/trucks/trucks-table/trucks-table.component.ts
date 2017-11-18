@@ -5,14 +5,14 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Truck } from './../../shared/models/vehicles';
 import { Component, OnInit } from '@angular/core';
 import { VehicleTableComponent } from 'app/shared/base.vehicle.table.component';
-import { FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireList } from 'angularfire2/database';
 
 @Component({
   selector: 'app-trucks-table',
   templateUrl: './Trucks-table.component.html'
 })
 export class TrucksTableComponent extends VehicleTableComponent {
-  vehicles$: FirebaseListObservable<Truck>;
+  vehicles$: AngularFireList<Truck>;
   apiUrl: any;
 
   constructor(modalService: NgbModal, vehicleService: VehiclesService) {

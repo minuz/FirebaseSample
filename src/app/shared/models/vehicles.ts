@@ -1,13 +1,13 @@
 import { Vehicle } from './vehicles';
 export interface Vehicle {
-    id: number;
+    key: string;
     name: string;
     color: string;
     manufacturer: string;
 }
 
 export class Car implements Vehicle {
-    id: number;
+    key: string;
     name: string;
     color: string;
     manufacturer: string;
@@ -17,14 +17,14 @@ export class Car implements Vehicle {
 }
 
 export class Truck implements Vehicle {
-    id: number;
+    key: string;
     name: string;
     color: string;
     manufacturer: string;
 }
 
 export class Bike implements Vehicle {
-    id: number;
+    key: string;
     name: string;
     color: string;
     manufacturer: string;
@@ -32,7 +32,7 @@ export class Bike implements Vehicle {
 }
 
 export class Motorcycle implements Vehicle {
-    id: number;
+    key: string;
     name: string;
     color: string;
     manufacturer: string;

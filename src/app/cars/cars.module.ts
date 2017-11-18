@@ -2,8 +2,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { DynamicFormsCoreModule } from '@ng2-dynamic-forms/core';
-import { DynamicFormsNGBootstrapUIModule } from '@ng2-dynamic-forms/ui-ng-bootstrap';
+import { DynamicFormsCoreModule } from '@ng-dynamic-forms/core';
+import { DynamicFormsNGBootstrapUIModule } from '@ng-dynamic-forms/ui-ng-bootstrap';
 
 import { CarsRoutingModule } from './cars-routing.module';
 import { CarsTableComponent } from './cars-table/cars-table.component';
