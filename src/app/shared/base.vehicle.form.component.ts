@@ -5,6 +5,7 @@ import { NgbActiveModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { DynamicFormControlModel, DynamicFormService } from '@ng-dynamic-forms/core';
 
 import { VehiclesService } from '../services/vehicles.service';
+import { Guid } from './util';
 
 export abstract class VehiclesFormComponent {
 
@@ -40,7 +41,7 @@ export abstract class VehiclesFormComponent {
 
     updateVehicle() {
         let values = this.formGroup.value;
-        this.vehicleService.Put(this.apiUrl, this.vehicle.$key, values)
+        this.vehicleService.Put(this.apiUrl, this.vehicle.key, values)
             .subscribe(res => this.onvehicleSaved(res));
     }
 
