@@ -2,19 +2,19 @@
   <button class="navbar-toggler navbar-toggler-right" type="button">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" routerLink="/home">Lucsan Technical Assessment</a>
+  <a class="navbar-brand" [routerLink]="[home]">Firebase Sample</a>
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item" *ngFor="let item of menu">
-        <a class="nav-link" routerLink="{{item.link}}">{{item.text}}</a>
+        <a class="nav-link" [routerLink]="[item.link]">{{item.text}}</a>
       </li>
     </ul>
-      <div ngbDropdown class="d-inline-block  pl-5 pt-2">
-        <a class="text-muted" id="dropdownBasic1" ngbDropdownToggle>{{user?.displayName}}</a>
-        <div class="dropdown-menu" aria-labelledby="dropdownBasic1">
-          <button class="dropdown-item" (click)="logout()">Logout</button>
-        </div>
-      </div>
+      <!-- <div dropdown class="d-inline-block pl-5 pt-2">
+          <a class="text-muted" dropdownToggle (click)="false">{{user?.displayName}}</a>
+          <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+              <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+          </ul>
+      </div> -->
   </div>
 </nav>
 <div class="container-fluid content-margin">
