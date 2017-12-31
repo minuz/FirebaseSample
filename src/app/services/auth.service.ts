@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
+import { UserInfo, auth } from 'firebase/app';
+
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
 
 import { AppRoutes } from './../shared/models/enums';
 
@@ -18,10 +20,13 @@ export class AuthService {
             .map(user => user ? true : false);
     }
 
-    getUserInfo() {
-        return this.firebaseAuth.authState.map(user => {
-            return user ? { displayName: user.displayName, userId: user.uid } : null;
-        });
+    getUserInfo(): Observable<UserInfo> {
+        return this.firebaseAuth.authState
+            .map(user => user ? <UserInfo>user : null)
+            .catch(err => {
+                console.log(err);
+                return Observable.throw(err);
+            });
     }
 
     loginEmail(email: string, password: string) {
@@ -29,7 +34,7 @@ export class AuthService {
     }
 
     loginGoogle() {
-        return this.firebaseAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+        return this.firebaseAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
     }
 
     logout() {

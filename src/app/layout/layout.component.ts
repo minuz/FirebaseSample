@@ -12,9 +12,7 @@ export class LayoutComponent implements OnInit {
   menu: any;
   user: any;
 
-  constructor(private authService: AuthService, private router: Router) {
-    this.home = AppRoutes.Home
-  }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.buildMenu();
@@ -24,11 +22,11 @@ export class LayoutComponent implements OnInit {
 
   buildMenu() {
     this.menu = [
-      { text: AppRoutes.Home.toPascalCase(), link: `/${AppRoutes.Home}` },
-      { text: VehiclesRoutes.Cars.toPascalCase(), link: `/${AppRoutes.Vehicles}/${VehiclesRoutes.Cars}` },
-      { text: VehiclesRoutes.Trucks.toPascalCase(), link: `/${AppRoutes.Vehicles}/${VehiclesRoutes.Trucks}` },
-      { text: VehiclesRoutes.Bikes.toPascalCase(), link: `/${AppRoutes.Vehicles}/${VehiclesRoutes.Bikes}` },
-      { text: VehiclesRoutes.Motorcycles.toPascalCase(), link: `/${AppRoutes.Vehicles}/${VehiclesRoutes.Motorcycles}` }
+      { text: AppRoutes.Home.toPascalCase(), link: [AppRoutes.Root, AppRoutes.Home] },
+      { text: VehiclesRoutes.Cars.toPascalCase(), link: [AppRoutes.Root, AppRoutes.Vehicles, VehiclesRoutes.Cars] },
+      { text: VehiclesRoutes.Trucks.toPascalCase(), link: [AppRoutes.Root, AppRoutes.Vehicles, VehiclesRoutes.Trucks] },
+      { text: VehiclesRoutes.Bikes.toPascalCase(), link: [AppRoutes.Root, AppRoutes.Vehicles, VehiclesRoutes.Bikes] },
+      { text: VehiclesRoutes.Motorcycles.toPascalCase(), link: [AppRoutes.Root, AppRoutes.Vehicles, VehiclesRoutes.Motorcycles] }
     ];
   }
 
