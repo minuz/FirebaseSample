@@ -2,7 +2,8 @@ export enum AppRoutes {
   Login = 'login',
   Home = 'home',
   Vehicles = 'vehicles',
-  Default = ''
+  Default = '',
+  Root = '/'
 }
 
 export enum VehiclesRoutes {
@@ -11,4 +12,11 @@ export enum VehiclesRoutes {
   Motorcycles = 'motorcycles',
   Trucks = 'trucks',
   Default = ''
+}
+
+export enum FirestoreCollection {
+  Bikes = 'bikes',
+  Cars = 'cars',
+  Motorcycles = 'motorcycles',
+  Trucks = 'trucks'
 }

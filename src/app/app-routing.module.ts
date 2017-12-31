@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { AppRoutes } from './shared/models/enums';
 
@@ -12,7 +12,10 @@ import { RouteAuthGuard } from './services/route.guard';
 const routes: Routes = [
   { path: AppRoutes.Login, component: LoginComponent },
   {
-    path: AppRoutes.Default, component: LayoutComponent, canActivate: [RouteAuthGuard], children:
+    path: AppRoutes.Default,
+    component: LayoutComponent,
+    canActivate: [RouteAuthGuard],
+    children:
       [
         { path: AppRoutes.Home, loadChildren: './home/home.module#HomeModule' },
         { path: AppRoutes.Vehicles, loadChildren: './vehicles/vehicles.module#VehiclesModule' },
@@ -22,7 +25,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  // imports: [RouterModule.forRoot(routes, { enableTracing: true, preloadingStrategy: PreloadAllModules })],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule],
   providers: [RouteAuthGuard]
 })

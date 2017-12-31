@@ -1,3 +1,17 @@
-<p>
-  vehicles-table works!
-</p>
+<table class="table table-hover table-sm" *ngIf="headers">
+  <thead>
+    <tr>
+      <th *ngFor="let header of headers">{{header.label}}</th>
+      <th class="text-right"><button class="btn btn-primary" (click)="openModal(null)">New</button></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data$ | async">
+      <td *ngFor="let header of headers">{{item[header.key]}}</td>
+      <td class="text-right">
+        <a (click)="openModal(item)"><i class="fa fa-edit"></i></a>
+        <a (click)="delete(item.id)"><i class="fa fa-trash"></i></a>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -212,9 +212,9 @@
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/@ng-dynamic-forms/core/-/core-5.1.2.tgz#885081a784717cb86c2c546dda5a582f5714e670"
 
-"@ng-dynamic-forms/ui-ng-bootstrap@^5.1.2":
+"@ng-dynamic-forms/ui-bootstrap@^5.1.2":
   version "5.1.2"
-  resolved "https://registry.yarnpkg.com/@ng-dynamic-forms/ui-ng-bootstrap/-/ui-ng-bootstrap-5.1.2.tgz#4ade798c4722b97ea334d77b9205c8182d8199c4"
+  resolved "https://registry.yarnpkg.com/@ng-dynamic-forms/ui-bootstrap/-/ui-bootstrap-5.1.2.tgz#dc5fdf71ecf114b6d05fff74fe6aea018d27a0c4"
 
 "@ngtools/json-schema@1.1.0", "@ngtools/json-schema@^1.1.0":
   version "1.1.0"
