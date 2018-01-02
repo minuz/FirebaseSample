@@ -1,3 +1,4 @@
+import { AppRoutes } from './../shared/models/enums';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
@@ -26,7 +27,8 @@ export class LoginComponent implements OnInit {
   googleSignIn() {
     this.authService.loginGoogle()
       .then(response => {
-        this.router.navigate(['/home']);
+        console.log('Google Sign-in', response);
+        this.router.navigate([AppRoutes.Home]);
       });
   }
 
@@ -35,7 +37,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginEmail(credentials.email, credentials.password)
       .then(response => {
         console.log(response);
-        this.router.navigate(['/home']);
+        this.router.navigate([`${AppRoutes.Home}`]);
       })
       .catch(error => {
         this.displayError = true;
