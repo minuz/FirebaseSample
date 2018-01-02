@@ -1,40 +1,43 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { BehaviorSubject, Observable } from 'rxjs/rx';
-import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
+
+import { AngularFireAuth } from 'angularfire2/auth';
+import { UserInfo, auth } from 'firebase/app';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
+
+import { AppRoutes } from './../shared/models/enums';
 
 @Injectable()
 export class AuthService {
 
-    constructor(private firebase: AngularFireAuth, private router: Router) { }
+    constructor(private firebaseAuth: AngularFireAuth, private router: Router) { }
 
     isAuthenticated(): Observable<boolean> {
-        return this.firebase.authState.map(user => {
-            if (user) {
-                return true;
-            } else {
-                this.router.navigate(['/login']);
-                return false;
-            }
-        });
+        return this.firebaseAuth.authState
+            .map(user => user ? true : false);
     }
 
-    getUserInfo() {
-        return this.firebase.authState.map(user => {
-            return user ? { displayName: user.displayName, userId: user.uid } : null;
-        });
+    getUserInfo(): Observable<UserInfo> {
+        return this.firebaseAuth.authState
+            .map(user => user ? <UserInfo>user : null)
+            .catch(err => {
+                console.log(err);
+                return Observable.throw(err);
+            });
     }
 
     loginEmail(email: string, password: string) {
-        return this.firebase.auth.signInWithEmailAndPassword(email, password);
+        return this.firebaseAuth.auth.signInWithEmailAndPassword(email, password);
     }
 
     loginGoogle() {
-        return this.firebase.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+        return this.firebaseAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
     }
 
     logout() {
-        return this.firebase.auth.signOut();
+        return this.firebaseAuth.auth.signOut();
     }
 }

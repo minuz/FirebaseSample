@@ -1,52 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HomeModule } from './home/home.module';
-import { CarsModule } from './cars/cars.module';
-import { TrucksModule } from './trucks/trucks.module';
-import { BikesModule } from './bikes/bikes.module';
-import { MotorcyclesModule } from './motorcycles/motorcycles.module';
+import { LoginModule } from './login/login.module';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 
 import { AuthService } from './services/auth.service';
-import { VehiclesService } from './services/vehicles.service';
 
 import { environment } from '../environments/environment';
 import { LayoutComponent } from './layout/layout.component';
 import { RouteAuthGuard } from 'app/services/route.guard';
 
-const AppModules = [
-  AppRoutingModule,
-  HomeModule,
-  CarsModule,
-  TrucksModule,
-  BikesModule,
-  MotorcyclesModule
-];
+import './shared/string.extensions';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, LayoutComponent],
+  declarations: [AppComponent, LayoutComponent],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
     HttpModule,
     AngularFireModule.initializeApp(environment.firebase, 'lucsan-sample"'),
-    AngularFireDatabaseModule,
+    AngularFirestoreModule,
     AngularFireAuthModule,
-    NgbModule.forRoot(),
-    AppModules
+    BsDropdownModule.forRoot(),
+    AppRoutingModule,
+    LoginModule
   ],
-  providers: [VehiclesService, AuthService, RouteAuthGuard],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
